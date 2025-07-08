@@ -2,9 +2,14 @@
 }
 
 .input {
+    border: 1px solid #D9D9D9;
+    padding: 10px;
+    border-radius: 4px;
+    width: 100%;
 }
 
 .inputWrapper {
+    width: 100%;
 }
 
 .superInput {

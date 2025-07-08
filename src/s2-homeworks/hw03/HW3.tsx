@@ -14,19 +14,19 @@ export type UserType = {
 // Изменяем pureAddUserCallback
 export const pureAddUserCallback = (
     name: string,
-    // Изменяем тип setUsers на более общий, который позволяет принимать как функцию-обновления, так и прямое значение
+    // setUsers: (a: (prev: UserType[]) => UserType[]) => void,
     setUsers: (users: UserType[]) => void,
-    users: UserType[] // Этот параметр, скорее всего, не нужен для тестов, но оставим его, так как он используется в компоненте
+    users: UserType[]
 ) => {
     const user: UserType = {
         _id: v1(),
         name: name,
     }
 
-    // Здесь мы должны вызвать setUsers так, чтобы она работала и с колбэком, и с прямым значением
-    // Лучше всего явно использовать колбэк форму, так как это безопаснее в React
-    setUsers([...users, user]);
+    // setUsers(users)
+    setUsers([...users, user])
 };
+
 
 const HW3 = () => {
     const [users, setUsers] = useState<UserType[]>([])
