@@ -1,25 +1,87 @@
+/* Основная панель */
 .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px; /* или сколько нужно */
+    height: 100%;
+    background-color: #fff;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
 }
 
 .sidebar.open {
+    transform: translateX(0);
 }
 
+/* Затемнение фона */
 .background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 900;
 }
 
+/* Навигация */
 .nav {
+    display: flex;
+    flex-direction: column;
+    gap: 45px;
+    font-size: 22px;
+    font-weight: 600;
+    padding: 80px 20px 20px; /* добавить отступ сверху для кнопки */
 }
 
 .nav a {
+    text-decoration: none;
+    color: #333;
+    transition: color 0.2s;
 }
 
 .nav a:hover {
+    color: #007bff; /* цвет при наведении */
 }
 
 .nav a.active {
+    color: #007bff;
+    border-left: 4px solid #007bff;
+    padding-left: 10px;
 }
+
+/* Кнопка закрытия */
 .close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
 }
 
 .close img {
+    width: 24px;
+    height: 24px;
+}
+
+/*....................*/
+
+.link {
+    text-decoration: none;
+    color: #333;
+    transition: color 0.2s;
+}
+
+.link:hover {
+    color: #007bff;
+}
+
+.active {
+    color: #007bff;
+    border-left: 4px solid #007bff;
+    padding-left: 10px;
 }

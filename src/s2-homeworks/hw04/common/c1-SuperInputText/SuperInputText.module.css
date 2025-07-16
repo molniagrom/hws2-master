@@ -16,10 +16,12 @@
 }
 
 .errorInput {
+    outline: 5px solid red;
 }
 
 .errorInput:focus {
 }
 
 .error {
+    color: red;
 }
