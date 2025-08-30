@@ -1,3 +1,88 @@
 .loader {
-    /*свг и/или анимация*/
+    --loader-size: 50px; /* Adjust size as needed */
+    --loader-thickness: 4px; /* Ring thickness */
+    --loader-color-primary: #007bff; /* Main color */
+    --loader-color-secondary: #00c6ff; /* Gradient end color */
+    --loader-speed: 1.2s; /* Animation duration */
+
+    position: relative;
+    width: var(--loader-size);
+    height: var(--loader-size);
+    border-radius: 50%;
+    border: var(--loader-thickness) solid transparent;
+    border-top-color: var(--loader-color-primary);
+    border-bottom-color: var(--loader-color-secondary);
+    animation: spin var(--loader-speed) linear infinite;
 }
+
+/* Add a subtle inner glow for depth */
+.loader::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: calc(var(--loader-size) * 0.6);
+    height: calc(var(--loader-size) * 0.6);
+    background: radial-gradient(circle, rgba(0, 123, 255, 0.2) 0%, transparent 70%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: pulse var(--loader-speed) ease-in-out infinite;
+}
+
+/* Rotation animation */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Pulse effect for the inner glow */
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        opacity: 0.5;
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+}
+
+/*//..............................................................................//*/
+
+/*.loader {*/
+/*    width: 108px;*/
+/*    height: 108px;*/
+/*    border-radius: 50%;*/
+/*    border: 9px solid transparent; !* Делаем основной border прозрачным *!*/
+/*    border-top-color: #512DE4;*/
+/*    animation: spin 1.2s linear infinite;*/
+/*    position: relative;*/
+/*}*/
+
+/*.loader::before {*/
+/*    content: "";*/
+/*    position: absolute;*/
+/*    top: 50%;*/
+/*    left: 50%;*/
+/*    transform: translate(-50%, -50%);*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*    border-radius: 50%;*/
+/*    padding: 9px; !* Размер padding должен быть равен толщине границы *!*/
+/*    background-image: linear-gradient(to right, #ffffff, #dcdcdc); !* Плавный градиент для задней части *!*/
+/*    background-clip: content-box; !* Обрезаем фон, чтобы он не выходил за padding *!*/
+/*    z-index: -1; !* Помещаем псевдоэлемент под основной *!*/
+/*}*/
+
+/*@keyframes spin {*/
+/*    0% {*/
+/*        transform: rotate(0deg);*/
+/*    }*/
+/*    100% {*/
+/*        transform: rotate(360deg);*/
+/*    }*/
+/*}*/
