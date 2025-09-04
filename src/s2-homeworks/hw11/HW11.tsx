@@ -39,7 +39,7 @@ function HW11() {
                             max={100}
                             step={1}
                             id={'hw11-single-slider'}
-                            onChange={(event: Event, value: number | number[]) => change(event, value)}
+                            onChange={change}
                             // сделать так чтоб value1 изменялось // пишет студент
 
                         />
@@ -50,10 +50,10 @@ function HW11() {
                             value={[value1, value2]}
                             min={0}
                             max={100}
-                            step={2}
+                            step={1}
                             id={'hw11-double-slider'}
                             // сделать так чтоб value1/2 изменялось // пишет студент
-                            onChange={(event: Event, value: number | number[]) => change(event, value)}
+                            onChange={change}
 
                         />
                         <span id={'hw11-value-2'} className={s.number}>{value2}</span>
