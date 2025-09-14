@@ -1,9 +1,33 @@
 .select {
+    /* Базовые стили для выпадающего списка */
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    width: 200px; /* Зададим фиксированную ширину для примера */
+    color: #333;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 }
 
 .select:focus {
+    /* Стили при фокусе (когда элемент активен) */
+    outline: none; /* Убираем стандартную обводку */
+    border-color: #007bff; /* Меняем цвет рамки на синий */
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25); /* Добавляем тень для выделения */
 }
 
+.option {
+    /* Базовые стили для элементов списка */
+    background-color: #fff;
+    color: #333;
+}
 
 .option:hover {
+    /* Стили при наведении курсора на элемент списка */
+    background-color: #f0f0f0; /* Светло-серый фон */
+    color: #000;
 }
