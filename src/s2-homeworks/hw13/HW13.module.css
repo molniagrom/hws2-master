@@ -1,22 +1,51 @@
 .buttonsContainer {
+    display: flex;
+    gap: 16px; /* расстояние между кнопками */
+    margin-bottom: 32px;
+
 }
 
 .responseContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
 }
 
 .imageContainer {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .image {
+    min-width: 418px;
+    height: auto;
 }
 
-.textContainer{
+.textContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 400px;
+    color: #000;
+
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 100%;
 }
 
 .code {
+    font-size: 30px;
+    padding-bottom: 10px;
 }
 
 .text {
+
 }
+
 .info {
+
 }
