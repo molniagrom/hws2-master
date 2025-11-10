@@ -1,27 +1,91 @@
-.tech {
-    width: 50vw;
+/* src/s2-homeworks/hw15/HW15.module.css */
+.hwTitle {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
 }
 
-.developer {
-
-}
-
-.techHeader {
-    width: 50vw;
-}
-
-.developerHeader {
-
-}
-
-.row {
-    display: flex;
+.hw {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .rowHeader {
     display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    font-weight: bold;
+    border-bottom: 1px solid #eee;
+    background-color: #f9f9f9;
+}
+
+.techHeader, .developerHeader {
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    width: 50%;
+}
+
+.techHeader {
+    justify-content: flex-start;
+}
+
+.developerHeader {
+    justify-content: flex-end; /* Align to the right for developer column */
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.tech, .developer {
+    padding: 0 10px;
+    width: 50%;
+}
+
+.tech {
+    justify-content: flex-start;
+}
+
+.developer {
+    justify-content: flex-end; /* Align to the right for developer column */
 }
 
 .loading {
+    text-align: center;
+    font-size: 1.2em;
+    color: #555;
+    margin-bottom: 15px;
+}
 
+.tableContainer {
+    position: relative; /* Чтобы позиционировать спиннер относительно этого контейнера */
+    min-height: 200px; /* Минимальная высота, чтобы спиннер был виден, если таблица пуста */
+}
+
+.loadingOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.7); /* Полупрозрачный белый фон */
+    z-index: 10; /* Поверх содержимого */
+}
+
+.fadedContent {
+    opacity: 0.5; /* Полупрозрачность */
+    pointer-events: none; /* Отключает взаимодействие с элементами под оверлеем */
 }

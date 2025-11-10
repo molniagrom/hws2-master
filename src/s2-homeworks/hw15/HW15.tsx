@@ -5,14 +5,15 @@ import axios from 'axios'
 import SuperPagination from './common/c9-SuperPagination/SuperPagination'
 import {useSearchParams} from 'react-router-dom'
 import SuperSort from './common/c10-SuperSort/SuperSort'
+import { CircularProgress } from '@mui/material'
 
 /*
-* 1 - дописать SuperPagination ✅
-* 2 - дописать SuperSort ✅
-* 3 - проверить pureChange тестами ✅
-* 3 - дописать sendQuery, onChangePagination, onChangeSort в HW15 ✅
-* 4 - сделать стили в соответствии с дизайном 
-* 5 - добавить HW15 в HW5/pages/JuniorPlus
+* 1 - complete SuperPagination ✅
+* 2 - complete SuperSort ✅
+* 3 - check pureChange with tests ✅
+* 3 - complete sendQuery, onChangePagination, onChangeSort in HW15 ✅
+* 4 - apply styles according to design 
+* 5 - add HW15 to HW5/pages/JuniorPlus
 * */
 
 type TechType = {
@@ -56,6 +57,7 @@ const HW15 = () => {
                 setTechs(res?.data.techs || [])
                 setTotalCount(res?.data.totalCount || 0)
                 //
+                setLoading(false)
             })
     }
 
@@ -82,6 +84,7 @@ const HW15 = () => {
         sendQuery({page: +params.page || 1, count: +params.count || 4, sort: params.sort || ''})
         setPage(+params.page || 1)
         setCount(+params.count || 4)
+        setLoading(false)
     }, [])
 
     const mappedTechs = techs.map(t => (
@@ -101,28 +104,36 @@ const HW15 = () => {
             <div className={s2.hwTitle}>Homework #15</div>
 
             <div className={s2.hw}>
-                {idLoading && <div id={'hw15-loading'} className={s.loading}>Loading...</div>}
+                <div className={s.tableContainer}> {/* Новый контейнер */}
+                    {idLoading && (
+                        <div className={s.loadingOverlay}>
+                            <CircularProgress size={67} />
+                        </div>
+                    )}
 
-                <SuperPagination
-                    page={page}
-                    itemsCountForPage={count}
-                    totalCount={totalCount}
-                    onChange={onChangePagination}
-                />
+                    <div className={idLoading ? s.fadedContent : ''}> {/* Применяем эффект затемнения */}
+                        <SuperPagination
+                            page={page}
+                            itemsCountForPage={count}
+                            totalCount={totalCount}
+                            onChange={onChangePagination}
+                        />
 
-                <div className={s.rowHeader}>
-                    <div className={s.techHeader}>
-                        tech
-                        <SuperSort sort={sort} value={'tech'} onChange={onChangeSort}/>
-                    </div>
+                        <div className={s.rowHeader}>
+                            <div className={s.techHeader}>
+                                tech
+                                <SuperSort sort={sort} value={'tech'} onChange={onChangeSort}/>
+                            </div>
 
-                    <div className={s.developerHeader}>
-                        developer
-                        <SuperSort sort={sort} value={'developer'} onChange={onChangeSort}/>
+                            <div className={s.developerHeader}>
+                                developer
+                                <SuperSort sort={sort} value={'developer'} onChange={onChangeSort}/>
+                            </div>
+                        </div>
+
+                        {mappedTechs}
                     </div>
                 </div>
-
-                {mappedTechs}
             </div>
         </div>
     )

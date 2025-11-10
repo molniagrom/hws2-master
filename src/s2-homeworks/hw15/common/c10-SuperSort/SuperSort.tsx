@@ -2,6 +2,7 @@ import React from 'react'
 import downIcon from '../../../../assets/arrow/downIcon.svg';
 import upIcon from '../../../../assets/arrow/upIcon.svg';
 import twoArror from '../../../../assets/arrow/twoArror.svg';
+import s from './SuperSort.module.css' // Add styles import
 
 export type SuperSortPropsType = {
     id?: string
@@ -11,7 +12,7 @@ export type SuperSortPropsType = {
 }
 
 export const pureChange = (sort: string, down: string, up: string) => {
-    // пишет студент, sort: (click) => down (click) => up (click) => '' (click) => down ...
+    // student writes, sort: (click) => down (click) => up (click) => '' (click) => down ...
     if (sort === down) return up;
     if (sort === up) return '';
     return down;
@@ -39,12 +40,14 @@ const SuperSort: React.FC<SuperSortPropsType> = (
         <span
             id={id + '-sort-' + value}
             onClick={onChangeCallback}
+            className={s.sortContainer} // Add class for container
         >
-            {/*сделать иконку*/}
+            {/*make icon*/}
             <img
                 id={id + '-icon-' + sort}
                 src={icon}
                 alt={'icon'}
+                className={s.sortIcon} // Add class for icon
             />
         </span>
     )

@@ -39,7 +39,7 @@ const SuperSelect: React.FC<SuperSelectPropsType> = ({
         : [] // map options with key
 
     const onChangeCallback = (e: ChangeEvent<HTMLSelectElement>) => {
-        // делают студенты
+        // students do
         onChangeOption && onChangeOption(+e.target.value)
         onChange && onChange(e)
     }
@@ -48,7 +48,7 @@ const SuperSelect: React.FC<SuperSelectPropsType> = ({
 
     return (
         <>
-            <p style={{fontSize: "20px"}}>Выберите тему</p>
+            <p style={{fontSize: "20px"}}>Select theme</p>
             <select
                 className={finalSelectClassName}
                 onChange={onChangeCallback}

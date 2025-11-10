@@ -19,7 +19,6 @@ const SuperPagination: React.FC<SuperPaginationPropsType> = (
     const lastPage = Math.ceil(totalCount / itemsCountForPage)
 
     const onChangeCallback = (event: ChangeEvent<unknown>, page: number) => {
-        debugger
         onChange(page, itemsCountForPage)
     }
 
@@ -32,6 +31,7 @@ const SuperPagination: React.FC<SuperPaginationPropsType> = (
             <Pagination
                 id={id + '-pagination'}
                 sx={{
+                    // Pagination styles // student writes
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
@@ -62,7 +62,7 @@ const SuperPagination: React.FC<SuperPaginationPropsType> = (
             />
 
             <span className={s.text1}>
-                показать
+                show
             </span>
 
             <SuperSelect
@@ -77,7 +77,7 @@ const SuperPagination: React.FC<SuperPaginationPropsType> = (
             />
 
             <span className={s.text2}>
-                строк в таблице
+                rows in table
             </span>
         </div>
     )

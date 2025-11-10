@@ -1,0 +1,15 @@
+.sortIcon {
+    width: 15px; /* Размер иконки */
+    height: 15px;
+    vertical-align: middle; /* Выравнивание иконки по центру текста */
+    margin-left: 5px; /* Отступ от текста */
+    cursor: pointer;
+}
+
+/* Стили для span, в котором находится текст и иконка */
+.sortContainer {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    user-select: none; /* Предотвращает выделение текста при клике */
+}
