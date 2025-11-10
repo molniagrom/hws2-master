@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ChangeEvent } from 'react'
 import SuperSelect from '../../../hw07/common/c5-SuperSelect/SuperSelect'
 import {Pagination} from '@mui/material'
 import s from './SuperPagination.module.css'
@@ -16,14 +16,15 @@ const SuperPagination: React.FC<SuperPaginationPropsType> = (
         page, itemsCountForPage, totalCount, onChange, id = 'hw15',
     }
 ) => {
-    const lastPage = 10 // пишет студент // вычислить количество страниц
+    const lastPage = Math.ceil(totalCount / itemsCountForPage)
 
-    const onChangeCallback = (event: any, page: number) => {
-        // пишет студент
+    const onChangeCallback = (event: ChangeEvent<unknown>, page: number) => {
+        debugger
+        onChange(page, itemsCountForPage)
     }
 
-    const onChangeSelect = (event: any) => {
-        // пишет студент
+    const onChangeSelect = (event: ChangeEvent<HTMLSelectElement>) => {
+        onChange(page, +event.target.value)
     }
 
     return (
@@ -31,8 +32,28 @@ const SuperPagination: React.FC<SuperPaginationPropsType> = (
             <Pagination
                 id={id + '-pagination'}
                 sx={{
-                    // стили для Pagination // пишет студент
-                }}
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    mt: 3,
+                    mb: 2,
+                    "& .MuiPaginationItem-root": {
+                      color: "#444",
+                      fontWeight: 500,
+                      borderRadius: "8px",
+                      transition: "all 0.2s ease",
+                      "&:hover": {
+                        backgroundColor: "#f0f0f0",
+                      },
+                      "&.Mui-selected": {
+                        backgroundColor: "#1976d2",
+                        color: "#fff",
+                        "&:hover": {
+                          backgroundColor: "#1565c0",
+                        },
+                      },
+                    },
+                  }}
                 page={page}
                 count={lastPage}
                 onChange={onChangeCallback}
